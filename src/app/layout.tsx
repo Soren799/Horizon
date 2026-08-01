@@ -16,8 +16,8 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Leo",
-  description: "Music & Works — by Leo",
+  title: "Horizon",
+  description: "Music & Works — Horizon",
 };
 
 export default function RootLayout({

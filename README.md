@@ -1,4 +1,4 @@
-# Leo
+# Horizon
 
 Personal website — music & works.
 
