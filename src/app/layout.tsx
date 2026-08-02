@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import CursorGlow from "@/components/CursorGlow";
+import PasswordGate from "@/components/PasswordGate";
 import "./globals.css";
 
 const inter = Inter({
@@ -32,7 +33,7 @@ export default function RootLayout({
         <noscript>
           <style>{`.gsap-pre { opacity: 1 !important; transform: none !important; }`}</style>
         </noscript>
-        {children}
+        <PasswordGate>{children}</PasswordGate>
       </body>
     </html>
   );
