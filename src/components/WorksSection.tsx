@@ -65,48 +65,55 @@ export default function WorksSection() {
 
         {/* Grid */}
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {works.map((work) => (
-            <div
-              key={work.id}
-              className="work-card gsap-pre group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-surface/40 transition-all duration-300 hover:border-accent/40 hover:bg-surface"
-            >
-              {/* Visual area */}
-              <div className="aspect-[4/3] w-full bg-gradient-to-br from-accent/10 to-transparent p-6">
-                <div className="flex h-full flex-col justify-between">
-                  <ExternalLink
-                    size={18}
-                    className="text-muted opacity-0 transition-opacity group-hover:opacity-100"
-                  />
-                  <span className="font-mono text-5xl font-light text-accent/30">
-                    {String(work.id).padStart(2, "0")}
-                  </span>
-                </div>
-              </div>
-
-              {/* Content */}
-              <div className="p-5">
-                <h3 className="text-lg font-medium tracking-tight text-fg">
-                  {work.title}
-                </h3>
-                <p className="mt-2 line-clamp-2 text-sm text-muted">
-                  {work.description}
-                </p>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {work.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full border border-border bg-bg px-2 py-1 text-xs text-muted"
-                    >
-                      {tag}
+          {works.map((work) => {
+            const Wrapper = work.url ? "a" : "div";
+            const linkProps = work.url
+              ? { href: work.url, target: "_blank", rel: "noopener noreferrer" }
+              : {};
+            return (
+              <Wrapper
+                key={work.id}
+                {...linkProps}
+                className="work-card gsap-pre group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-surface/40 transition-all duration-300 hover:border-accent/40 hover:bg-surface"
+              >
+                {/* Visual area */}
+                <div className="aspect-[4/3] w-full bg-gradient-to-br from-accent/10 to-transparent p-6">
+                  <div className="flex h-full flex-col justify-between">
+                    <ExternalLink
+                      size={18}
+                      className="text-muted opacity-0 transition-opacity group-hover:opacity-100"
+                    />
+                    <span className="font-mono text-5xl font-light text-accent/30">
+                      {String(work.id).padStart(2, "0")}
                     </span>
-                  ))}
+                  </div>
                 </div>
-              </div>
 
-              {/* Hover glow */}
-              <div className="pointer-events-none absolute -bottom-20 -right-20 h-40 w-40 rounded-full bg-accent/5 opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100" />
-            </div>
-          ))}
+                {/* Content */}
+                <div className="p-5">
+                  <h3 className="text-lg font-medium tracking-tight text-fg">
+                    {work.title}
+                  </h3>
+                  <p className="mt-2 line-clamp-2 text-sm text-muted">
+                    {work.description}
+                  </p>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {work.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-full border border-border bg-bg px-2 py-1 text-xs text-muted"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Hover glow */}
+                <div className="pointer-events-none absolute -bottom-20 -right-20 h-40 w-40 rounded-full bg-accent/5 opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100" />
+              </Wrapper>
+            );
+          })}
         </div>
 
         {/* Footer note */}

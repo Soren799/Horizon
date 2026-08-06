@@ -137,7 +137,7 @@ export type Work = {
 };
 
 export const works: Work[] = [
-  { id: 1, title: "敬请期待", description: "这里将展示未来的作品。", tags: ["待定"] },
+  { id: 1, title: "空岛火力", description: "三路防守休闲射击 · 竖屏 H5 小游戏", tags: ["H5", "游戏"], url: "/island-shooter/" },
   { id: 2, title: "敬请期待", description: "这里将展示未来的作品。", tags: ["待定"] },
   { id: 3, title: "敬请期待", description: "这里将展示未来的作品。", tags: ["待定"] },
   { id: 4, title: "敬请期待", description: "这里将展示未来的作品。", tags: ["待定"] },
